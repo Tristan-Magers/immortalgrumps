@@ -1,0 +1,9 @@
+execute if entity @s[tag=turn,tag=removing,scores={click=1..}] run function game:player/click/remove
+execute if entity @s[tag=turn,tag=select,nbt={SelectedItem:{id:"minecraft:lime_dye"}},scores={click=1..}] run function game:player/click/end_turn
+execute if entity @s[tag=battle,scores={click=1..}] run function game:player/click/battle_card
+execute if entity @s[tag=turn,tag=buying,scores={click=1..}] run function game:player/click/spend_card
+execute if entity @s[tag=turn,tag=select,scores={click=1..}] run function game:player/click/select_building
+execute if entity @s[tag=turn,tag=placing,scores={click=1..}] run function game:player/click/select_place
+execute if entity @s[tag=turn,tag=placing_adv,scores={click=1..}] run function game:player/click/select_place_adv
+execute if entity @s[tag=turn,tag=taking,scores={click=1..}] run function game:player/click/taking
+execute if entity @s[tag=!turn,tag=battle,tag=defender,scores={click=1..}] run function game:player/click/defender
