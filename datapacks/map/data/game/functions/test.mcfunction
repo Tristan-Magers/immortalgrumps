@@ -21,7 +21,9 @@ tag @e remove seen_perm
 
 execute as @a[scores={player_num=1}] run function game:player/click/start_turn
 
-scoreboard objectives remove palyer_cards
+scoreboard objectives remove player_cards
 scoreboard objectives add player_cards dummy {"text":"Cards"}
 
 scoreboard objectives setdisplay sidebar player_cards
+
+execute as @a run function game:player/teleport

@@ -4,3 +4,5 @@ execute if entity @s[nbt={SelectedItem:{id:"minecraft:diamond"}}] run function g
 execute if entity @s[nbt={SelectedItem:{id:"minecraft:redstone"}}] run function game:player/steal/gem4
 
 execute if entity @s[nbt={SelectedItem:{id:"minecraft:barrier"}}] run function game:player/steal/no_gem
+
+scoreboard players set @s click 0

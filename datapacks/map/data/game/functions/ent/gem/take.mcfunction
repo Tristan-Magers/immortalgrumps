@@ -1,4 +1,4 @@
-execute as @a[tag=turn] run function game:player/store_cards
+execute as @a[tag=turn,tag=!taking] run function game:player/store_cards
 clear @a[tag=turn]
 
 execute if entity @s[scores={gem1=1..}] run give @a[tag=turn] emerald

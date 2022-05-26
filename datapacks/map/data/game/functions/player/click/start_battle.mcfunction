@@ -1,4 +1,4 @@
-say START BATTLE
+#say START BATTLE
 
 tag @a remove battle
 tag @a remove battle_wait

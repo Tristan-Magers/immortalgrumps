@@ -1,3 +1,11 @@
+tag @a remove battle
+tag @a remove battle_wait
+tag @a remove buying
+tag @a remove placing
+tag @a remove removing
+tag @a remove placing_adv
+tag @a remove select
+
 tag @a remove turn
 function game:player/remove_tags
 
@@ -22,3 +30,6 @@ execute as @e[tag=royal,tag=!built] if score @s player_num = @p[tag=turn] player
 execute as @e[tag=royal,tag=!built] if score @s player_num = @p[tag=turn] player_num run scoreboard players set @s buildType 1000
 execute as @e[tag=royal,tag=!built] if score @s player_num = @p[tag=turn] player_num run execute as @e[tag=left,tag=!built] if score @s player_num = @e[tag=new_royal,limit=1] player_num run scoreboard players set @s buildType 999
 execute as @e[tag=royal,tag=!built] if score @s player_num = @p[tag=turn] player_num run execute as @e[tag=right,tag=!built] if score @s player_num = @e[tag=new_royal,limit=1] player_num run scoreboard players set @s buildType 999
+
+#
+function game:player/teleport

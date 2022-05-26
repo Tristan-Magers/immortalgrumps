@@ -128,12 +128,6 @@ function game:makecard/build10
 function game:makecard/build10
 function game:makecard/build10
 
-function game:makecard/build10
-function game:makecard/build10
-function game:makecard/build10
-function game:makecard/build10
-function game:makecard/build10
-
 #advisor deck
 function game:makecard/advisor1
 function game:makecard/advisor1
@@ -165,16 +159,19 @@ function game:makecard/advisor6
 function game:makecard/advisor6
 function game:makecard/advisor6
 
-function game:makecard/advisor7
-function game:makecard/advisor7
-function game:makecard/advisor7
-function game:makecard/advisor7
+#Trainer, design issues
+#function game:makecard/advisor7
+#function game:makecard/advisor7
+#function game:makecard/advisor7
+#function game:makecard/advisor7
 
-function game:makecard/advisor9
-function game:makecard/advisor9
-function game:makecard/advisor9
-function game:makecard/advisor9
+#Dragon, not functional
+function game:makecard/advisor8
+function game:makecard/advisor8
+function game:makecard/advisor8
+function game:makecard/advisor8
 
+#Traitor
 function game:makecard/advisor9
 function game:makecard/advisor9
 function game:makecard/advisor9

@@ -15,8 +15,8 @@ execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=10}]
 
 #execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0}] run scoreboard players operation @s buildType = @e[tag=buildcard,type=marker,scores={deckPlace=0},limit=1] cardType
 
-execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0}] run execute if entity @s[tag=1] run tag @e[tag=store,tag=1] remove built
-execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0}] run execute if entity @s[tag=2] run tag @e[tag=store,tag=2] remove built
+execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0}] run execute if entity @s[tag=1] as @e[tag=store,tag=1] at @s run function game:ent/building/break
+execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0}] run execute if entity @s[tag=2] as @e[tag=store,tag=2] at @s run function game:ent/building/break
 
 execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0}] run execute if entity @s[tag=1] run scoreboard players operation @e[tag=store,tag=1] buildType = @e[tag=buildcard,type=marker,scores={deckPlace=0},limit=1] cardType
 execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0}] run execute if entity @s[tag=2] run scoreboard players operation @e[tag=store,tag=2] buildType = @e[tag=buildcard,type=marker,scores={deckPlace=0},limit=1] cardType

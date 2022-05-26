@@ -1,6 +1,8 @@
+kill @e[tag=chattext,tag=spent]
+
 scoreboard players operation @e[tag=text] entID -= @e[tag=building,tag=selected,tag=store,limit=1] entID
 
-say Buying @e[tag=text,tag=name,scores={entID=0}]
+#say Buying @e[tag=text,tag=name,scores={entID=0}]
 scoreboard players operation @s player_price = @e[tag=building,tag=selected,tag=store,limit=1] buildCost
 scoreboard players operation @s player_price = @e[tag=building,tag=selected,tag=store2,limit=1] buildCost
 

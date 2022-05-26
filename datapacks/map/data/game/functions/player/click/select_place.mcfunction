@@ -14,6 +14,9 @@ execute if entity @e[tag=seen_me,tag=action_build] run clear @s lime_dye
 execute if entity @e[tag=seen_me,tag=action_build] run clear @s barrier
 execute if entity @e[tag=seen_me,tag=action_build] run item replace entity @s hotbar.7 with lime_dye{CustomModelData:2,display:{Name:'[{"text":"END TURN","color":"dark_green","bold":true,"italic":false},{"text":"","color":"gray"}]',Lore:[]},HideFlags:32,type:8} 1
 
+#Shadow Cult effect
+execute if entity @e[tag=seen_me,tag=action_build] if entity @s[scores={player_buy_build=10}] run function game:player/effect/start_shadow_cult
+
 tag @s remove temp_was_selected
 
 scoreboard players set @s click 0

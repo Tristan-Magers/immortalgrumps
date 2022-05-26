@@ -78,6 +78,3 @@ function game:ent/building/health_update
 
 tag @s remove seen2
 tag @s remove selected
-
-#Shadow Cult effect
-execute if entity @s[scores={buildType=10},tag=!store] if entity @e[tag=building,tag=advisor,tag=!store2,tag=built] as @p[tag=turn] run function game:player/effect/start_shadow_cult

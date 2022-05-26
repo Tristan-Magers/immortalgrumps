@@ -41,6 +41,13 @@ fill ~ ~1 ~ ~ ~1 ~ air
 #
 scoreboard players operation @e[tag=gems] player_num -= @s player_num
 
+#set dragon tags
+tag @a remove dragon1
+tag @a remove dragon2
+
+execute as @e[tag=1,tag=advisor,tag=!store2,scores={buildType=8}] if score @s player_num = @p[tag=turn] player_num run tag @a[tag=turn] add dragon1
+execute as @e[tag=2,tag=advisor,tag=!store2,scores={buildType=8}] if score @s player_num = @p[tag=turn] player_num run tag @a[tag=turn] add dragon2
+
 execute if entity @s[tag=royal] as @e[tag=gems,scores={player_num=0}] run function game:ent/gem/take
 
 scoreboard players operation @e[tag=gems] player_num += @s player_num

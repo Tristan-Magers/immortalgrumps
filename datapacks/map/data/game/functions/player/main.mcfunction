@@ -1,4 +1,7 @@
-execute store result score @s player_cards run clear @s paper 0
+execute store result score @s[scores={player_num=1..}] player_cards run clear @s paper 0
+
+#join
+execute unless entity @s[tag=join] run function game:player/join
 
 #
 execute as @s[tag=!turn_now,tag=turn] run function game:player/newturn
