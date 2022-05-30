@@ -1,3 +1,14 @@
+#Bargainer effect
+execute if entity @s[tag=bargain] as @e[tag=store,scores={buildCost=1}] at @s run data merge entity @e[tag=cost,limit=1,sort=nearest,distance=..3] {CustomName:'{"text":"Cost 1","color":"dark_aqua"}'}
+execute if entity @s[tag=bargain] as @e[tag=store,scores={buildCost=2}] at @s run data merge entity @e[tag=cost,limit=1,sort=nearest,distance=..3] {CustomName:'{"text":"Cost 2","color":"dark_aqua"}'}
+execute if entity @s[tag=bargain] as @e[tag=store,scores={buildCost=3}] at @s run data merge entity @e[tag=cost,limit=1,sort=nearest,distance=..3] {CustomName:'{"text":"Cost 3","color":"dark_aqua"}'}
+
+execute if entity @s[tag=bargain] as @e[tag=store2,scores={buildCost=1}] at @s run data merge entity @e[tag=cost,limit=1,sort=nearest,distance=..3] {CustomName:'{"text":"Cost 1","color":"dark_aqua"}'}
+execute if entity @s[tag=bargain] as @e[tag=store2,scores={buildCost=2}] at @s run data merge entity @e[tag=cost,limit=1,sort=nearest,distance=..3] {CustomName:'{"text":"Cost 2","color":"dark_aqua"}'}
+execute if entity @s[tag=bargain] as @e[tag=store2,scores={buildCost=3}] at @s run data merge entity @e[tag=cost,limit=1,sort=nearest,distance=..3] {CustomName:'{"text":"Cost 3","color":"dark_aqua"}'}
+
+tag @s remove bargain
+
 scoreboard players operation @e[tag=text] entID -= @e[tag=building,tag=selected,tag=store,limit=1] entID
 
 tellraw @a [{"text":"["},{"text":"✰","color":"gold"},{"text":"] "},{"selector":"@a[tag=turn]"},{"text":" BOUGHT "},{"selector":"@e[tag=text,tag=name,scores={entID=0}]","color":"gray"},{"text":"\n    ("},{"selector":"@e[tag=chattext,tag=spent]"},{"text":")"}]
@@ -24,3 +35,4 @@ function game:player/store_cards
 function game:player/unstore_cards
 
 function game:player/teleport
+

@@ -11,10 +11,12 @@ execute if entity @s[tag=info,scores={buildType=5}] run summon armor_stand ~ ~1.
 execute if entity @s[tag=info,scores={buildType=5}] run summon armor_stand ~ ~1.35 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Costs 3 Monsters"}'}
 execute if entity @s[tag=info,scores={buildType=6}] run summon armor_stand ~ ~1.6 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Can\'t be damaged by heroes."}'}
 execute if entity @s[tag=info,scores={buildType=6}] run summon armor_stand ~ ~1.35 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Costs 3 Assassins"}'}
-execute if entity @s[tag=info,scores={buildType=7}] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Draw 2 cards when destroyed."}'}
+execute if entity @s[tag=info,scores={buildType=7}] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Draw 2 cards when destroyed while defending."}'}
 execute if entity @s[tag=info,scores={buildType=8}] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"If a tie, both buildings are destroyed."}'}
-execute if entity @s[tag=info,scores={buildType=9}] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Deal +1 damage, including on tie."}'}
+execute if entity @s[tag=info,scores={buildType=9}] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Deal +1 damage (not on tie)"}'}
 execute if entity @s[tag=info,scores={buildType=10}] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"When placed, remove any advisor."}'}
+
+execute if entity @s[tag=info,scores={buildType=1000}] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Can\'t attack."}'}
 
 #
 execute if entity @s[tag=store] as @s at @s run tp @s ~ ~0.3 ~

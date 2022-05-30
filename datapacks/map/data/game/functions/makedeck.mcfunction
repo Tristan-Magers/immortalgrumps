@@ -122,9 +122,13 @@ function game:makecard/build9
 function game:makecard/build9
 function game:makecard/build9
 
+#Shadow Cult (note: more than average)
 function game:makecard/build10
 function game:makecard/build10
 function game:makecard/build10
+function game:makecard/build10
+function game:makecard/build10
+
 function game:makecard/build10
 function game:makecard/build10
 
@@ -165,17 +169,26 @@ function game:makecard/advisor6
 #function game:makecard/advisor7
 #function game:makecard/advisor7
 
-#Dragon, not functional
+#Dragon
 function game:makecard/advisor8
 function game:makecard/advisor8
 function game:makecard/advisor8
 function game:makecard/advisor8
 
-#Traitor
+#Traitor (note: more than average)
 function game:makecard/advisor9
 function game:makecard/advisor9
 function game:makecard/advisor9
 function game:makecard/advisor9
+
+function game:makecard/advisor9
+function game:makecard/advisor9
+
+#Bargainer
+function game:makecard/advisor10
+function game:makecard/advisor10
+function game:makecard/advisor10
+function game:makecard/advisor10
 
 #shuffle and sort cards
 scoreboard players add @e[tag=minion,type=marker] deckPlace 0

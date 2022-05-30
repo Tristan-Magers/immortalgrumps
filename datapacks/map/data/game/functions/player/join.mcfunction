@@ -1,4 +1,4 @@
-tp @s 0.5 -52.00 -53.5
+tp @s 0.5 -52.00 -53.5 0 0
 gamemode adventure
 clear @s
 

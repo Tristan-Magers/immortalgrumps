@@ -6,6 +6,8 @@ tag @a remove removing
 tag @a remove placing_adv
 tag @a remove select
 
+tag @a remove bargain
+
 tag @a remove turn
 function game:player/remove_tags
 

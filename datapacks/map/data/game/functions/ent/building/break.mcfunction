@@ -1,20 +1,36 @@
+#Thief advisor effect
+tag @a remove thief1
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=1] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run tag @p[tag=turn] add thief1
+
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=1] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run tellraw @s [{"text":"+2 Cards (Thief)","color":"white"}]
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=1] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=1] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
+
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=1] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run tellraw @s [{"text":"+2 Cards (Thief)","color":"white"}]
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=1] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=1] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
+
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=!thief1] run tellraw @s [{"text":"+2 Cards (Thief)","color":"white"}]
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=thief1] run tellraw @s [{"text":"+1 Cards (Thief)","color":"white"}]
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=!thief1] run function game:player/draw
+
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=!thief1] run tellraw @s [{"text":"+2 Cards (Thief)","color":"white"}]
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=thief1] run tellraw @s [{"text":"+1 Cards (Thief)","color":"white"}]
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
+execute if score @s[tag=!advisor,tag=!store,tag=!store2,tag=!replacing] player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=!thief1] run function game:player/draw
+
 #
-tag @e remove replacing
 tag @e remove me
 tag @s add me
 
-#Thief advisor effect
-execute if score @s player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run tellraw @s [{"text":"+2 Cards","color":"white"}]
-execute if score @s player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
-execute if score @s player_num > @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
-
-execute if score @s player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run tellraw @s [{"text":"+2 Cards","color":"white"}]
-execute if score @s player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
-execute if score @s player_num < @p[tag=turn] player_num as @e[tag=advisor,tag=!store2,scores={buildType=4}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run function game:player/draw
-
 #Forest Village effect
-execute if entity @s[scores={buildType=7}] as @a if score @s player_num = @e[tag=me,limit=1] player_num run function game:player/draw
-execute if entity @s[scores={buildType=7}] as @a if score @s player_num = @e[tag=me,limit=1] player_num run function game:player/draw
+execute if entity @s[scores={buildType=7},tag=!replacing,tag=!store] as @a[tag=!turn] if score @s player_num = @e[tag=me,limit=1] player_num run tellraw @s [{"text":"+2 Cards (Forest Village)","color":"white"}]
+execute if entity @s[scores={buildType=7},tag=!replacing,tag=!store] as @a[tag=!turn] if score @s player_num = @e[tag=me,limit=1] player_num run function game:player/draw
+execute if entity @s[scores={buildType=7},tag=!replacing,tag=!store] as @a[tag=!turn] if score @s player_num = @e[tag=me,limit=1] player_num run function game:player/draw
+
+#
+tag @e remove replacing
 
 #
 scoreboard players operation @e[tag=adv_vis] entID -= @s entID
@@ -52,7 +68,7 @@ execute if entity @s[tag=royal] as @e[tag=gems,scores={player_num=0}] run functi
 
 scoreboard players operation @e[tag=gems] player_num += @s player_num
 
-execute if entity @s[tag=!advisor] as @e[tag=building,scores={buildType=1..},tag=built,tag=center] if score @s player_num = @e[tag=me,limit=1] player_num run tag @s add replacing
+execute if entity @s[tag=!advisor,tag=!store] as @e[tag=building,scores={buildType=1..},tag=built,tag=center] if score @s player_num = @e[tag=me,limit=1] player_num run tag @s add replacing
 
 tag @e remove me
 

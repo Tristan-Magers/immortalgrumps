@@ -4,6 +4,9 @@ execute store result score @s[scores={player_num=1..}] player_cards run clear @s
 execute unless entity @s[tag=join] run function game:player/join
 
 #
+tag @s[tag=turn,tag=!select,tag=!battle,tag=!battle_wait,tag=!buying,tag=!placing,tag=!removing,tag=!placing_adv,tag=!taking] add select
+
+#
 execute as @s[tag=!turn_now,tag=turn] run function game:player/newturn
 
 tag @s remove turn_now
@@ -57,3 +60,24 @@ effect give @s minecraft:weakness 999999 10 true
 
 #
 #item replace entity @s[nbt=!{Inventory:[{id:"minecraft:ender_pearl"}]}] hotbar.8 with minecraft:ender_pearl
+
+#
+clear @s[nbt=!{Inventory:[{id:"minecraft:written_book"}]}] written_book
+item replace entity @s[nbt=!{Inventory:[{id:"minecraft:written_book"}]}] hotbar.8 with written_book{title:"How To Play",author:"",pages:['[{"text":"Goal: ","bold":true},{"bold":false,"text":"Collect all colors of gems. (or three in 1v1)"},{"bold":false,"text":"\\n\\nBreak Royal Towers to steal gems."},{"bold":false,"text":"\\n\\nBuy Buildings and Avisors to attack and defend yourself."},{"bold":false,"text":"\\n\\nBattle with cards, in a Rock-Paper-Scissors type fight."}]']} 1
+
+#
+title @s actionbar {"text":""}
+execute if entity @s[tag=turn,tag=select] if entity @e[tag=building,tag=seen_me,tag=store] run title @s actionbar {"text":"Buy Building"}
+execute if entity @s[tag=turn,tag=select] if entity @e[tag=building,tag=seen_me,tag=store2] run title @s actionbar {"text":"Buy Advisor"}
+execute if entity @s[tag=turn,tag=select] if entity @e[tag=building,tag=seen_me,tag=!store,tag=!advisor,tag=royal,tag=action_build] run title @s actionbar {"text":"Your Royal Tower"}
+execute if entity @s[tag=turn,tag=select] if entity @e[tag=building,tag=seen_me,tag=!store,tag=!advisor,tag=!royal,tag=action_build,tag=!selected] run title @s actionbar {"text":"Attack with building"}
+execute if entity @s[tag=turn,tag=select] if entity @e[tag=building,tag=seen_me,tag=!store,tag=!advisor,tag=!royal,tag=action_build,tag=selected] run title @s actionbar {"text":"Unselect building"}
+execute if entity @s[tag=turn,tag=select] if entity @e[tag=building,tag=seen_me,tag=!store,tag=!advisor,tag=!royal,tag=target] run title @s actionbar {"text":"Attack this building"}
+execute if entity @s[tag=battle] run title @s actionbar {"text":"Select card to attack with"}
+execute if entity @s[tag=defender,tag=!battle] if entity @p[tag=turn,tag=battle] run title @s actionbar {"text":"Waiting for attacker to select card"}
+execute if entity @s[tag=turn,tag=!battle,tag=battle_wait] run title @s actionbar {"text":"Waiting for defender to select card"}
+execute if entity @s[tag=turn,tag=buying] run title @s actionbar [{"text":"Select cards to spend ("},{"color":"gold","score":{"name":"@s","objective":"player_price"}},{"text":" Remaining}"}]
+execute if entity @s[tag=turn,tag=placing] run title @s actionbar {"text":"Place building in valid spot"}
+execute if entity @s[tag=turn,tag=placing_adv] run title @s actionbar {"text":"Place advisor in valid spot"}
+execute if entity @s[tag=turn,tag=removing] run title @s actionbar {"text":"Choose advisor to remove (can be canceled)"}
+execute if entity @s[tag=turn,tag=removing] if entity @e[tag=building,tag=seen_me,tag=action_build] run title @s actionbar {"text":"Remove this advisor."}

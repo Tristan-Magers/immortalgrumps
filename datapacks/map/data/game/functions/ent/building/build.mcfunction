@@ -24,6 +24,8 @@ execute if entity @s[scores={buildType=8}] run tag @s add info
 execute if entity @s[scores={buildType=9}] run tag @s add info
 execute if entity @s[scores={buildType=10}] run tag @s add info
 
+execute if entity @s[scores={buildType=1000}] run tag @s add info
+
 #set cost
 execute if entity @s[scores={buildType=1}] run scoreboard players set @s buildCost 3
 execute if entity @s[scores={buildType=2}] run scoreboard players set @s buildCost 2
@@ -59,14 +61,14 @@ execute if entity @s[scores={buildHealthMax=5}] run summon armor_stand ~ ~1.4 ~ 
 execute if entity @s[scores={buildHealthMax=6}] run summon armor_stand ~ ~1.4 ~ {Tags:["text","newtext","health"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"6/6"}'}
 execute if entity @s[scores={buildHealthMax=7}] run summon armor_stand ~ ~1.4 ~ {Tags:["text","newtext","health"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"7/7"}'}
 
-execute if entity @s[tag=royal] run team join royal @e[tag=newtext,tag=health]
 execute if entity @s[tag=info] run team join info @e[tag=newtext,tag=health]
+execute if entity @s[tag=royal] run team join royal @e[tag=newtext,tag=health]
 
-execute if entity @s[tag=store,scores={buildCost=1}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 1","color":"dark_aqua"}'}
-execute if entity @s[tag=store,scores={buildCost=2}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 2","color":"dark_aqua"}'}
-execute if entity @s[tag=store,scores={buildCost=3}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 3","color":"dark_aqua"}'}
-execute if entity @s[tag=store,scores={buildCost=4}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 4","color":"dark_aqua"}'}
-execute if entity @s[tag=store,scores={buildCost=5}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 5","color":"dark_aqua"}'}
+execute if entity @s[tag=store,scores={buildCost=1}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","cost"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 1","color":"dark_aqua"}'}
+execute if entity @s[tag=store,scores={buildCost=2}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","cost"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 2","color":"dark_aqua"}'}
+execute if entity @s[tag=store,scores={buildCost=3}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","cost"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 3","color":"dark_aqua"}'}
+execute if entity @s[tag=store,scores={buildCost=4}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","cost"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 4","color":"dark_aqua"}'}
+execute if entity @s[tag=store,scores={buildCost=5}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","cost"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Cost 5","color":"dark_aqua"}'}
 
 scoreboard players operation @e[tag=newtext] entID = @s entID
 tag @e[tag=newtext] remove newtext

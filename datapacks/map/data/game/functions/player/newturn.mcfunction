@@ -1,3 +1,10 @@
+# Bargain effect
+tag @a remove bargain
+execute as @e[tag=advisor,tag=!store2,scores={buildType=10}] if score @s player_num = @p[tag=turn] player_num run tag @a[tag=turn] add bargain
+
+execute if entity @s[tag=bargain] as @e[tag=store] at @s run data merge entity @e[tag=cost,limit=1,sort=nearest,distance=..3] {CustomName:'{"text":"Cost 0","color":"dark_aqua"}'}
+execute if entity @s[tag=bargain] as @e[tag=store2] at @s run data merge entity @e[tag=cost,limit=1,sort=nearest,distance=..3] {CustomName:'{"text":"Cost 0","color":"dark_aqua"}'}
+
 # Dragon effect
 tag @a remove dragon1
 tag @a remove dragon2

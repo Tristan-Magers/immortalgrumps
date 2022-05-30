@@ -9,6 +9,7 @@ execute at @s if entity @s[scores={player_num=3}] run setblock ~ ~ ~ minecraft:d
 execute at @s if entity @s[scores={player_num=4}] run setblock ~ ~ ~ minecraft:deepslate_redstone_ore
 
 scoreboard players set @s gems 0
+scoreboard players set @s gem_count 0
 
 scoreboard players operation @s gem1t = @s gem1
 scoreboard players operation @s gem2t = @s gem2
@@ -20,9 +21,16 @@ scoreboard players operation @s gems += @s gem2
 scoreboard players operation @s gems += @s gem3
 scoreboard players operation @s gems += @s gem4
 
+scoreboard players add @s[scores={gem1=1..}] gem_count 1
+scoreboard players add @s[scores={gem2=1..}] gem_count 1
+scoreboard players add @s[scores={gem3=1..}] gem_count 1
+scoreboard players add @s[scores={gem4=1..}] gem_count 1
+
 function game:ent/gem/display_rec
 
 execute at @s if entity @s[scores={player_num=3}] run tp @s 3 -59.5 -68
 execute at @s if entity @s[scores={player_num=2}] run tp @s 14 -59.5 -57
 execute at @s if entity @s[scores={player_num=1}] run tp @s -3 -59.5 -40
 execute at @s if entity @s[scores={player_num=4}] run tp @s -14 -59.5 -51
+
+function game:ent/gem/check_for_win

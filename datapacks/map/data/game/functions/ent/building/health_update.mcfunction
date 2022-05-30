@@ -33,8 +33,8 @@ execute if entity @s[scores={buildHealthMax=6,buildHealth=6}] run summon armor_s
 
 execute if entity @s[scores={buildHealthMax=7,buildHealth=2}] run summon armor_stand ~ ~1.4 ~ {Tags:["text","newtext","health"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"7/7"}'}
 
-execute if entity @s[tag=royal] run team join royal @e[tag=newtext,tag=health]
 execute if entity @s[tag=info] run team join info @e[tag=newtext,tag=health]
+execute if entity @s[tag=royal] run team join royal @e[tag=newtext,tag=health]
 
 scoreboard players operation @e[tag=newtext] entID = @s entID
 tag @e[tag=newtext] remove newtext

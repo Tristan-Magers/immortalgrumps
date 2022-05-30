@@ -9,6 +9,8 @@ kill @e[type=zombie_villager]
 
 scoreboard players set @a player_num 0
 
+scoreboard players set .leave.time .game 0
+
 scoreboard players set .player1 .game 0
 scoreboard players set .player2 .game 0
 scoreboard players set .player3 .game 1

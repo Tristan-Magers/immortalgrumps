@@ -2,6 +2,10 @@
 scoreboard objectives remove .data
 
 #
+scoreboard objectives add leave minecraft.custom:minecraft.leave_game
+
+scoreboard objectives add gem_count dummy
+
 scoreboard objectives add player_attack dummy
 scoreboard objectives add player_num dummy
 scoreboard objectives add player_price dummy
@@ -76,6 +80,8 @@ scoreboard players set .1 .num 1
 scoreboard players set .2 .num 2
 scoreboard players set .3 .num 3
 scoreboard players set .4 .num 4
+
+scoreboard players set .1200 .num 1200
 
 #
 team add info
