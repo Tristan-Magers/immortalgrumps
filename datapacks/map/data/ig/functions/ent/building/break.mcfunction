@@ -10,9 +10,9 @@ tag @e remove me
 tag @s add me
 
 #Forest Village effect
-execute if entity @s[scores={buildType=7},tag=!replacing,tag=!store] as @a[tag=!turn] if score @s player_num = @e[tag=me,limit=1] player_num run tellraw @s [{"text":"+2 Cards (Forest Village)","color":"white"}]
-execute if entity @s[scores={buildType=7},tag=!replacing,tag=!store] as @a[tag=!turn] if score @s player_num = @e[tag=me,limit=1] player_num run function ig:player/draw
-execute if entity @s[scores={buildType=7},tag=!replacing,tag=!store] as @a[tag=!turn] if score @s player_num = @e[tag=me,limit=1] player_num run function ig:player/draw
+execute if entity @s[scores={buildType=7},tag=!replacing,tag=!store,tag=!advisor] as @a[tag=!turn] if score @s player_num = @e[tag=me,limit=1] player_num run tellraw @s [{"text":"+2 Cards (Forest Village)","color":"white"}]
+execute if entity @s[scores={buildType=7},tag=!replacing,tag=!store,tag=!advisor] as @a[tag=!turn] if score @s player_num = @e[tag=me,limit=1] player_num run function ig:player/draw
+execute if entity @s[scores={buildType=7},tag=!replacing,tag=!store,tag=!advisor] as @a[tag=!turn] if score @s player_num = @e[tag=me,limit=1] player_num run function ig:player/draw
 
 #
 tag @e remove replacing

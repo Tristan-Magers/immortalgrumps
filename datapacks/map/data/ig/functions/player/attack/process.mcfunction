@@ -1,3 +1,4 @@
+#default damage
 scoreboard players set @s[scores={player_card_select=1..3,player_card_opponent=1..3}] player_damage 999
 scoreboard players set @s[scores={player_card_select=4..6,player_card_opponent=4..6}] player_damage 999
 scoreboard players set @s[scores={player_card_select=7..9,player_card_opponent=7..9}] player_damage 999
@@ -16,6 +17,9 @@ execute as @e[tag=advisor,tag=!store2,scores={buildType=6}] if score @s player_n
 execute as @e[tag=advisor,tag=!store2,scores={buildType=6}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run scoreboard players add @s[scores={player_card_select=7..9,player_card_opponent=1..3}] player_damage 1
 execute as @e[tag=advisor,tag=!store2,scores={buildType=6}] if score @s player_num = @p[tag=defender] player_num as @p[tag=turn] run scoreboard players remove @s[scores={player_card_select=1..3,player_card_opponent=7..9}] player_damage 1
 
+execute as @e[tag=advisor,tag=!store2,scores={buildType=6}] if score @s player_num = @p[tag=turn] player_num if entity @p[scores={player_card_select=7..9,player_card_opponent=999}] run summon marker ~ ~ ~ {Tags:["chattext","effect"],CustomName:'{"text":"[Spy]","color":"gold"}'}
+execute as @e[tag=advisor,tag=!store2,scores={buildType=6}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn] run scoreboard players add @s[scores={player_card_select=7..9,player_card_opponent=999}] player_damage 1
+
 #COOL cancel
 scoreboard players set @s[scores={player_card_select=2,player_card_opponent=2}] player_damage 0
 scoreboard players set @s[scores={player_card_select=2,player_card_opponent=5}] player_damage 0
@@ -26,6 +30,32 @@ scoreboard players set @s[scores={player_card_select=5,player_card_opponent=8}] 
 scoreboard players set @s[scores={player_card_select=8,player_card_opponent=2}] player_damage 0
 scoreboard players set @s[scores={player_card_select=8,player_card_opponent=5}] player_damage 0
 scoreboard players set @s[scores={player_card_select=8,player_card_opponent=8}] player_damage 0
+
+#Celebrity advisor effect
+tag @a remove cool_dam
+tag @s[scores={player_card_select=2,player_damage=1..20}] add cool_dam
+tag @s[scores={player_card_select=5,player_damage=1..20}] add cool_dam
+tag @s[scores={player_card_select=8,player_damage=1..20}] add cool_dam
+
+execute if entity @s[scores={player_card_select=4..6,player_damage=..-1}] run tag @p[tag=defender] add cool_dam
+execute if entity @s[scores={player_card_select=7..9,player_damage=..-1}] run tag @p[tag=defender] add cool_dam
+execute if entity @s[scores={player_card_select=1..3,player_damage=..-1}] run tag @p[tag=defender] add cool_dam
+
+tag @s[scores={player_card_select=2,player_card_opponent=999}] add cool_dam
+tag @s[scores={player_card_select=5,player_card_opponent=999}] add cool_dam
+tag @s[scores={player_card_select=8,player_card_opponent=999}] add cool_dam
+
+execute as @e[tag=advisor,tag=!store2,scores={buildType=7},tag=1] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=cool_dam] run tellraw @a[tag=turn] [{"text":"+1 Card (Celebrity)","color":"white"}]
+execute as @e[tag=advisor,tag=!store2,scores={buildType=7},tag=1] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=cool_dam] as @p[tag=turn] run function ig:player/draw
+
+execute as @e[tag=advisor,tag=!store2,scores={buildType=7},tag=1] if score @s player_num = @p[tag=defender] player_num as @p[tag=defender,tag=cool_dam] run tellraw @a[tag=defender] [{"text":"+1 Card (Celebrity)","color":"white"}]
+execute as @e[tag=advisor,tag=!store2,scores={buildType=7},tag=1] if score @s player_num = @p[tag=defender] player_num as @p[tag=defender,tag=cool_dam] run function ig:player/draw
+
+execute as @e[tag=advisor,tag=!store2,scores={buildType=7},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=cool_dam] run tellraw @a[tag=turn] [{"text":"+1 Card (Celebrity)","color":"white"}]
+execute as @e[tag=advisor,tag=!store2,scores={buildType=7},tag=2] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,tag=cool_dam] as @p[tag=turn] run function ig:player/draw
+
+execute as @e[tag=advisor,tag=!store2,scores={buildType=7},tag=2] if score @s player_num = @p[tag=defender] player_num as @p[tag=defender,tag=cool_dam] run tellraw @a[tag=defender] [{"text":"+1 Card (Celebrity)","color":"white"}]
+execute as @e[tag=advisor,tag=!store2,scores={buildType=7},tag=2] if score @s player_num = @p[tag=defender] player_num as @p[tag=defender,tag=cool_dam] run function ig:player/draw
 
 #old LENGENDARY effect
 #scoreboard players set @s[scores={player_card_select=6,player_card_opponent=1..3}] player_damage 0
@@ -58,9 +88,6 @@ execute if entity @s[scores={player_card_opponent=999}] as @a[tag=defender] run 
 execute if entity @s[scores={player_card_opponent=999}] as @a[tag=defender] run function ig:player/draw
 execute if entity @s[scores={player_card_opponent=999}] as @a[tag=defender] run function ig:player/draw
 
-scoreboard players set @s[scores={player_card_select=10}] player_damage 0
-scoreboard players set @s[scores={player_card_opponent=10}] player_damage 0
-
 #blacksmith effect
 execute if entity @e[tag=target,scores={buildType=9}] if entity @s[scores={player_damage=-10..-1}] run scoreboard players remove @s player_damage 1
 execute if entity @e[tag=selected,scores={buildType=9}] if entity @s[scores={player_damage=1..10}] run scoreboard players add @s player_damage 1
@@ -68,6 +95,11 @@ execute if entity @e[tag=selected,scores={buildType=9}] if entity @s[scores={pla
 #Body double advisor effect
 execute as @e[tag=advisor,tag=!store2,scores={buildType=5}] if score @s player_num = @p[tag=defender] player_num as @p[tag=turn,scores={player_card_opponent=999}] run summon marker ~ ~ ~ {Tags:["chattext","effect"],CustomName:'{"text":"[Body Double]","color":"gold"}'}
 execute as @e[tag=advisor,tag=!store2,scores={buildType=5}] if score @s player_num = @p[tag=defender] player_num as @p[tag=turn] run scoreboard players set @s[scores={player_card_opponent=999}] player_damage 0
+
+# Trap cards (not effected by most damage effects)
+scoreboard players set @s[scores={player_card_select=1..9,player_card_opponent=10}] player_damage 1
+scoreboard players set @s[scores={player_card_select=10,player_card_opponent=1..9}] player_damage -1
+scoreboard players set @s[scores={player_card_select=10,player_card_opponent=10}] player_damage 999
 
 #damage
 execute if entity @s[scores={player_damage=1..10}] run scoreboard players operation @e[tag=target] buildHealth -= @s player_damage
@@ -82,13 +114,6 @@ execute if entity @e[tag=target,scores={buildType=8}] if entity @s[scores={playe
 
 execute if entity @e[tag=selected,scores={buildType=8}] if entity @s[scores={player_damage=999}] run scoreboard players remove @e[tag=target] buildHealth 10
 execute if entity @e[tag=selected,scores={buildType=8}] if entity @s[scores={player_damage=999}] run scoreboard players remove @e[tag=selected] buildHealth 10
-
-#Trainer advisor effect
-execute as @e[tag=advisor,tag=!store2,scores={buildType=7}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,scores={player_damage=999}] run tellraw @a[tag=turn] [{"text":"+1 Trade damage!","color":"white"}]
-execute as @e[tag=advisor,tag=!store2,scores={buildType=7}] if score @s player_num = @p[tag=turn] player_num as @p[tag=turn,scores={player_damage=999}] run scoreboard players remove @e[tag=target] buildHealth 1
-
-execute as @e[tag=advisor,tag=!store2,scores={buildType=7}] if score @s player_num = @p[tag=defender] player_num as @p[tag=turn,scores={player_damage=999}] run tellraw @a[tag=defender] [{"text":"+1 Trade damage!","color":"white"}]
-execute as @e[tag=advisor,tag=!store2,scores={buildType=7}] if score @s player_num = @p[tag=defender] player_num as @p[tag=turn,scores={player_damage=999}] run scoreboard players remove @e[tag=selected] buildHealth 1
 
 #
 execute as @e[tag=target,tag=building] at @s run function ig:ent/building/update

@@ -1,4 +1,4 @@
-tellraw @a [{"selector":"@a[tag=turn]"},{"text":"Pick an advisor to remove.","color":"green"}]
+tellraw @a [{"selector":"@a[tag=turn]"},{"text":" : ","color":"gray"},{"text":"Picking an advisor to remove.","color":"gold"}]
 
 function ig:player/check_actionable_adv_remove
 

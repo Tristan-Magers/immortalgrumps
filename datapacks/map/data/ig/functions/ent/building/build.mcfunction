@@ -1,18 +1,24 @@
 tag @s add built
 execute if entity @s[scores={buildType=1}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:smithing_table
-execute if entity @s[scores={buildType=2}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:lectern
+execute if entity @s[scores={buildType=2,player_num=1}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:lectern[facing=north]
+execute if entity @s[scores={buildType=2,player_num=2}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:lectern[facing=west]
+execute if entity @s[scores={buildType=2,player_num=3}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:lectern[facing=south]
+execute if entity @s[scores={buildType=2,player_num=4}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:lectern[facing=east]
 execute if entity @s[scores={buildType=3}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:stonecutter
 execute if entity @s[scores={buildType=4}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:respawn_anchor
 execute if entity @s[scores={buildType=5}] run clone -3 -60 7 -3 -60 7 ~ ~1 ~
 execute if entity @s[scores={buildType=6}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:smoker
-execute if entity @s[scores={buildType=7}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:birch_leaves
+execute if entity @s[scores={buildType=7}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:flowering_azalea_leaves
 execute if entity @s[scores={buildType=8}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:tnt
 execute if entity @s[scores={buildType=9}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:anvil
 
 execute if entity @s[scores={buildType=10}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:end_portal_frame
 
 execute if entity @s[scores={buildType=999}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:chiseled_stone_bricks
-execute if entity @s[scores={buildType=1000}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:ender_chest
+execute if entity @s[scores={buildType=1000,player_num=1}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:ender_chest[facing=north]
+execute if entity @s[scores={buildType=1000,player_num=2}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:ender_chest[facing=west]
+execute if entity @s[scores={buildType=1000,player_num=3}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:ender_chest[facing=south]
+execute if entity @s[scores={buildType=1000,player_num=4}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:ender_chest[facing=east]
 
 #does it have more extra info info?
 tag @s remove info
@@ -31,7 +37,7 @@ execute if entity @s[scores={buildType=1}] run scoreboard players set @s buildCo
 execute if entity @s[scores={buildType=2}] run scoreboard players set @s buildCost 2
 execute if entity @s[scores={buildType=3}] run scoreboard players set @s buildCost 1
 execute if entity @s[scores={buildType=4}] run scoreboard players set @s buildCost 3
-execute if entity @s[scores={buildType=5}] run scoreboard players set @s buildCost 3
+execute if entity @s[scores={buildType=5}] run scoreboard players set @s buildCost 1
 execute if entity @s[scores={buildType=6}] run scoreboard players set @s buildCost 3
 execute if entity @s[scores={buildType=7}] run scoreboard players set @s buildCost 3
 execute if entity @s[scores={buildType=8}] run scoreboard players set @s buildCost 2

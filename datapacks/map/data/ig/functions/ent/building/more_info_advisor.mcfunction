@@ -18,7 +18,10 @@ execute if entity @s[tag=info,scores={buildType=4}] run summon armor_stand ~ ~1.
 execute if entity @s[tag=info,scores={buildType=5}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Take no damage when attacked with no cards."}'}
 execute if entity @s[tag=info,scores={buildType=6}] run summon armor_stand ~ ~1.8 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Your Assassins do +1 damage."}'}
 execute if entity @s[tag=info,scores={buildType=6}] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"(Not on trade)"}'}
-execute if entity @s[tag=info,scores={buildType=7}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Trades do +1 damage to opponent."}'}
+
+execute if entity @s[tag=info,scores={buildType=7}] run summon armor_stand ~ ~1.8 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"If you damage with a COOL card,"}'}
+execute if entity @s[tag=info,scores={buildType=7}] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"draw a card. (including trade)"}'}
+
 execute if entity @s[tag=info,scores={buildType=8}] run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Take +1 Gems on Royal kill."}'}
 execute if entity @s[tag=info,scores={buildType=9},tag=store2] run summon armor_stand ~ ~1.8 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"PLACE ANYWHERE"}'}
 execute if entity @s[tag=info,scores={buildType=9},tag=store2] run summon armor_stand ~ ~1.5 ~ {Tags:["text","newtext","temptext"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Draw -1 at end of turn."}'}
@@ -38,7 +41,7 @@ execute if entity @s[scores={buildType=3}] at @s run summon armor_stand ~ ~1.7 ~
 execute if entity @s[scores={buildType=4}] at @s run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext","name"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Thief"}'}
 execute if entity @s[scores={buildType=5}] at @s run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext","name"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Body Double"}'}
 execute if entity @s[scores={buildType=6}] at @s run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext","name"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Spy"}'}
-execute if entity @s[scores={buildType=7}] at @s run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext","name"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Trainer"}'}
+execute if entity @s[scores={buildType=7}] at @s run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext","name"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Celebrity"}'}
 execute if entity @s[scores={buildType=8}] at @s run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext","name"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Dragon"}'}
 execute if entity @s[scores={buildType=9}] at @s run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext","name"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Traitor"}'}
 execute if entity @s[scores={buildType=10}] at @s run summon armor_stand ~ ~1.7 ~ {Tags:["text","newtext","temptext","name"],CustomNameVisible:1b,Small:1b,Marker:1b,Invisible:1b,CustomName:'{"text":"Bargainer"}'}

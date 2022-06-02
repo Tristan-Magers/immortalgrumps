@@ -1,3 +1,5 @@
+scoreboard players set .game.time .game 0
+
 scoreboard objectives remove player_num
 scoreboard objectives add player_num dummy
 

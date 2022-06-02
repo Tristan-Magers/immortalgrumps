@@ -5,9 +5,11 @@ scoreboard players operation @e[tag=text] entID -= @e[tag=building,tag=selected,
 scoreboard players operation @s player_price = @e[tag=building,tag=selected,tag=store,limit=1] buildCost
 scoreboard players operation @s player_price = @e[tag=building,tag=selected,tag=store2,limit=1] buildCost
 
-#Bargainer effect
-tellraw @s[tag=bargain] [{"text":"Costs 0 (Bargainer)","color":"white"}]
-scoreboard players set @s[tag=bargain] player_price 0
+#Bargainer effect (note: designed to possibly just be a reduced amount)
+execute if entity @s[scores={player_price=21..}] run tellraw @s[tag=bargain] [{"text":"Costs 1 (Bargainer)","color":"white"}]
+execute if entity @s[scores={player_price=..20}] run tellraw @s[tag=bargain] [{"text":"Costs 0 (Bargainer)","color":"white"}]
+execute if entity @s[scores={player_price=..20}] run scoreboard players set @s[tag=bargain] player_price 0
+execute if entity @s[scores={player_price=21..}] run scoreboard players set @s[tag=bargain] player_price 1
 
 scoreboard players operation @e[tag=text] entID += @e[tag=building,tag=selected,tag=store,limit=1] entID
 

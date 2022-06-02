@@ -10,7 +10,7 @@ execute if entity @s[scores={buildType=3}] run summon villager ~ ~0.5 ~ {Tags:["
 execute if entity @s[scores={buildType=4}] run summon villager ~ ~0.5 ~ {Tags:["adv_vis","new_adv_vis"],NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Age:-999999,VillagerData:{profession:"minecraft:shepherd",type:"minecraft:swamp"},ArmorItems:[{},{},{},{id:"minecraft:gold_nugget",Count:1b}]}
 execute if entity @s[scores={buildType=5}] run summon villager ~ ~0.5 ~ {Tags:["adv_vis","new_adv_vis"],NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Age:-999999,VillagerData:{profession:"minecraft:toolsmith",type:"minecraft:taga"},ArmorItems:[{},{},{},{id:"minecraft:chainmail_chestplate",Count:1b}]}
 execute if entity @s[scores={buildType=6}] run summon villager ~ ~0.5 ~ {Tags:["adv_vis","new_adv_vis"],NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Age:-999999,VillagerData:{profession:"minecraft:weaponsmith",type:"minecraft:snow"},ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}]}
-execute if entity @s[scores={buildType=7}] run summon villager ~ ~0.5 ~ {Tags:["adv_vis","new_adv_vis"],NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Age:-999999,VillagerData:{profession:"minecraft:butcher",type:"minecraft:jungle"},ArmorItems:[{},{},{},{id:"minecraft:iron_sword",Count:1b}]}
+execute if entity @s[scores={buildType=7}] run summon villager ~ ~0.5 ~ {Tags:["adv_vis","new_adv_vis"],NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Age:-999999,VillagerData:{profession:"minecraft:butcher",type:"minecraft:jungle"},ArmorItems:[{},{},{},{id:"minecraft:gold_nugget",Count:1b}]}
 execute if entity @s[scores={buildType=8}] run summon villager ~ ~0.5 ~ {Tags:["adv_vis","new_adv_vis"],NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Age:-999999,VillagerData:{profession:"minecraft:farmer",type:"minecraft:savanna"},ArmorItems:[{},{},{},{id:"minecraft:diamond",Count:1b}]}
 execute if entity @s[scores={buildType=9}] run summon zombie_villager ~ ~0.5 ~ {Tags:["adv_vis","new_adv_vis"],NoGravity:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,NoAI:1b,CanPickUpLoot:0b,IsBaby:1b,ArmorItems:[{},{},{},{id:"minecraft:carrot_on_a_stick",Count:1b}]}
 execute if entity @s[scores={buildType=10}] run summon villager ~ ~0.5 ~ {Tags:["adv_vis","new_adv_vis"],NoGravity:1b,Silent:1b,Invulnerable:1b,NoAI:1b,Age:-999999,VillagerData:{profession:"minecraft:mason",type:"minecraft:plains"},ArmorItems:[{},{},{},{id:"minecraft:emerald",Count:1b}]}
@@ -28,6 +28,7 @@ execute if entity @s[scores={buildType=2}] run scoreboard players set @s buildCo
 execute if entity @s[scores={buildType=3}] run scoreboard players set @s buildCost 1
 execute if entity @s[scores={buildType=4}] run scoreboard players set @s buildCost 1
 execute if entity @s[scores={buildType=6}] run scoreboard players set @s buildCost 1
+execute if entity @s[scores={buildType=7}] run scoreboard players set @s buildCost 1
 execute if entity @s[scores={buildType=9}] run scoreboard players set @s buildCost 1
 
 #set health

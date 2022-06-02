@@ -104,6 +104,12 @@ function ig:makecard/build3
 function ig:makecard/build3
 function ig:makecard/build3
 
+function ig:makecard/build5
+function ig:makecard/build5
+function ig:makecard/build5
+function ig:makecard/build5
+function ig:makecard/build5
+
 function ig:makecard/build7
 function ig:makecard/build7
 function ig:makecard/build7
@@ -163,11 +169,11 @@ function ig:makecard/advisor6
 function ig:makecard/advisor6
 function ig:makecard/advisor6
 
-#Trainer, design issues
-#function ig:makecard/advisor7
-#function ig:makecard/advisor7
-#function ig:makecard/advisor7
-#function ig:makecard/advisor7
+#Celebrity
+function ig:makecard/advisor7
+function ig:makecard/advisor7
+function ig:makecard/advisor7
+function ig:makecard/advisor7
 
 #Dragon
 function ig:makecard/advisor8
