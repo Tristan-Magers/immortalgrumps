@@ -14,6 +14,9 @@ scoreboard objectives add player_card_select dummy
 scoreboard objectives add player_card_opponent dummy
 scoreboard objectives add player_damage dummy
 
+scoreboard objectives add turn_time dummy
+scoreboard objectives add choose_part dummy
+
 scoreboard objectives add deckPlace dummy
 scoreboard objectives add deckType dummy
 scoreboard objectives add cardType dummy

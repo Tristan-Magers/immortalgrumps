@@ -14,3 +14,5 @@ tag @e[tag=building,tag=advisor,tag=!store2] remove action_build
 execute unless entity @e[tag=building,scores={buildType=0,player_num=0}] run tag @e[tag=building,tag=store] remove action_build
 
 scoreboard players operation @e[tag=building] player_num += @s player_num
+
+tag @e[tag=royal] remove action_build

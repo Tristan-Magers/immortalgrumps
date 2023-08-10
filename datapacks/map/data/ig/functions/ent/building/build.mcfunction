@@ -5,14 +5,15 @@ execute if entity @s[scores={buildType=2,player_num=2}] run fill ~ ~1 ~ ~ ~1 ~ m
 execute if entity @s[scores={buildType=2,player_num=3}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:lectern[facing=south]
 execute if entity @s[scores={buildType=2,player_num=4}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:lectern[facing=east]
 execute if entity @s[scores={buildType=3}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:stonecutter
-execute if entity @s[scores={buildType=4}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:respawn_anchor
+execute if entity @s[scores={buildType=4}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:scaffolding
 execute if entity @s[scores={buildType=5}] run clone -3 -60 7 -3 -60 7 ~ ~1 ~
-execute if entity @s[scores={buildType=6}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:smoker
+execute if entity @s[scores={buildType=6}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:enchanting_table
 execute if entity @s[scores={buildType=7}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:flowering_azalea_leaves
 execute if entity @s[scores={buildType=8}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:tnt
 execute if entity @s[scores={buildType=9}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:anvil
 
 execute if entity @s[scores={buildType=10}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:end_portal_frame
+execute if entity @s[scores={buildType=11}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:fletching_table
 
 execute if entity @s[scores={buildType=999}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:chiseled_stone_bricks
 execute if entity @s[scores={buildType=1000,player_num=1}] run fill ~ ~1 ~ ~ ~1 ~ minecraft:ender_chest[facing=north]
@@ -29,6 +30,7 @@ execute if entity @s[scores={buildType=7}] run tag @s add info
 execute if entity @s[scores={buildType=8}] run tag @s add info
 execute if entity @s[scores={buildType=9}] run tag @s add info
 execute if entity @s[scores={buildType=10}] run tag @s add info
+execute if entity @s[scores={buildType=11}] run tag @s add info
 
 execute if entity @s[scores={buildType=1000}] run tag @s add info
 
@@ -36,25 +38,27 @@ execute if entity @s[scores={buildType=1000}] run tag @s add info
 execute if entity @s[scores={buildType=1}] run scoreboard players set @s buildCost 3
 execute if entity @s[scores={buildType=2}] run scoreboard players set @s buildCost 2
 execute if entity @s[scores={buildType=3}] run scoreboard players set @s buildCost 1
-execute if entity @s[scores={buildType=4}] run scoreboard players set @s buildCost 3
+execute if entity @s[scores={buildType=4}] run scoreboard players set @s buildCost 2
 execute if entity @s[scores={buildType=5}] run scoreboard players set @s buildCost 1
-execute if entity @s[scores={buildType=6}] run scoreboard players set @s buildCost 3
+execute if entity @s[scores={buildType=6}] run scoreboard players set @s buildCost 2
 execute if entity @s[scores={buildType=7}] run scoreboard players set @s buildCost 3
 execute if entity @s[scores={buildType=8}] run scoreboard players set @s buildCost 2
 execute if entity @s[scores={buildType=9}] run scoreboard players set @s buildCost 2
 execute if entity @s[scores={buildType=10}] run scoreboard players set @s buildCost 2
+execute if entity @s[scores={buildType=11}] run scoreboard players set @s buildCost 2
 
 #set health
 execute if entity @s[scores={buildType=1}] run scoreboard players set @s buildHealthMax 6
 execute if entity @s[scores={buildType=2}] run scoreboard players set @s buildHealthMax 4
 execute if entity @s[scores={buildType=3}] run scoreboard players set @s buildHealthMax 2
-execute if entity @s[scores={buildType=4}] run scoreboard players set @s buildHealthMax 6
+execute if entity @s[scores={buildType=4}] run scoreboard players set @s buildHealthMax 5
 execute if entity @s[scores={buildType=5}] run scoreboard players set @s buildHealthMax 5
 execute if entity @s[scores={buildType=6}] run scoreboard players set @s buildHealthMax 4
 execute if entity @s[scores={buildType=7}] run scoreboard players set @s buildHealthMax 3
 execute if entity @s[scores={buildType=8}] run scoreboard players set @s buildHealthMax 3
 execute if entity @s[scores={buildType=9}] run scoreboard players set @s buildHealthMax 3
 execute if entity @s[scores={buildType=10}] run scoreboard players set @s buildHealthMax 3
+execute if entity @s[scores={buildType=11}] run scoreboard players set @s buildHealthMax 3
 
 execute if entity @s[scores={buildType=999}] run scoreboard players set @s buildHealthMax 4
 execute if entity @s[scores={buildType=1000}] run scoreboard players set @s buildHealthMax 5

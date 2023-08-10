@@ -8,6 +8,8 @@ setblock -13 -60 -59 minecraft:netherite_block
 setblock -13 -60 -49 minecraft:lodestone
 setblock -13 -60 -47 minecraft:lodestone
 
+setblock -7 -60 -54 minecraft:redstone_block
+
 #
 summon armor_stand -14 -59.5 -51 {Tags:["newbuild","gems"],CustomNameVisible:0b,Small:1b,Marker:1b,Invisible:1b}
 

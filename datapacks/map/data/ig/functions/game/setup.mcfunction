@@ -16,10 +16,10 @@ scoreboard players set .player2 .game 0
 scoreboard players set .player3 .game 1
 scoreboard players set .player4 .game 0
 
-scoreboard players set @r[scores={player_num=0}] player_num 1
-scoreboard players set @r[scores={player_num=0}] player_num 3
-scoreboard players set @r[scores={player_num=0}] player_num 2
-scoreboard players set @r[scores={player_num=0}] player_num 4
+scoreboard players set @r[scores={player_num=0},gamemode=adventure] player_num 1
+scoreboard players set @r[scores={player_num=0},gamemode=adventure] player_num 3
+scoreboard players set @r[scores={player_num=0},gamemode=adventure] player_num 2
+scoreboard players set @r[scores={player_num=0},gamemode=adventure] player_num 4
 
 execute if entity @a[scores={player_num=1}] run scoreboard players set .player1 .game 1
 execute if entity @a[scores={player_num=2}] run scoreboard players set .player2 .game 1
@@ -46,3 +46,5 @@ function ig:game/build_map
 
 clear @s
 function ig:game/makedeck
+
+tag @a[scores={player_num=1..}] add first_turn

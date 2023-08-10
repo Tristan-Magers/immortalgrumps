@@ -12,6 +12,7 @@ execute if entity @e[tag=advisorcard,type=marker,scores={deckPlace=0,cardType=7}
 execute if entity @e[tag=advisorcard,type=marker,scores={deckPlace=0,cardType=8}] run function ig:makecard/advisor8
 execute if entity @e[tag=advisorcard,type=marker,scores={deckPlace=0,cardType=9}] run function ig:makecard/advisor9
 execute if entity @e[tag=advisorcard,type=marker,scores={deckPlace=0,cardType=10}] run function ig:makecard/advisor10
+execute if entity @e[tag=advisorcard,type=marker,scores={deckPlace=0,cardType=11}] run function ig:makecard/advisor11
 
 #execute if entity @e[tag=advisorcard,type=marker,scores={deckPlace=0}] run scoreboard players operation @s buildType = @e[tag=advisorcard,type=marker,scores={deckPlace=0},limit=1] cardType
 

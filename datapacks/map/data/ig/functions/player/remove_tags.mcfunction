@@ -4,4 +4,5 @@ tag @s remove buying
 tag @s remove placing
 tag @s remove removing
 tag @s remove placing_adv
+tag @s remove taking
 tag @s remove select

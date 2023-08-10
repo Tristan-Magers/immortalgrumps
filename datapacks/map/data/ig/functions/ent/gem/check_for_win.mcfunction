@@ -10,5 +10,6 @@ execute if score .players .game = .1 .num if entity @s[scores={gem_count=2..,pla
 
 execute if score .players .game = .2 .num if entity @s[scores={gem_count=2..,player_num=1,gem3=3..}] run function ig:ent/gem/win
 execute if score .players .game = .2 .num if entity @s[scores={gem_count=2..,player_num=3,gem1=3..}] run function ig:ent/gem/win
+
 execute if score .players .game = .3 .num if entity @s[scores={gem_count=3..}] run function ig:ent/gem/win
 execute if score .players .game = .4 .num if entity @s[scores={gem_count=4..}] run function ig:ent/gem/win

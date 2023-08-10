@@ -35,4 +35,3 @@ function ig:player/store_cards
 function ig:player/unstore_cards
 
 function ig:player/teleport
-

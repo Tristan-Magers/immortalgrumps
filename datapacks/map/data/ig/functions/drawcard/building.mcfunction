@@ -12,6 +12,13 @@ execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=7}] 
 execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=8}] run function ig:makecard/build8
 execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=9}] run function ig:makecard/build9
 execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=10}] run function ig:makecard/build10
+execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=11}] run function ig:makecard/build11
+execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=12}] run function ig:makecard/build12
+execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=13}] run function ig:makecard/build13
+execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=14}] run function ig:makecard/build14
+execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=15}] run function ig:makecard/build15
+execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=16}] run function ig:makecard/build16
+execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0,cardType=17}] run function ig:makecard/build17
 
 #execute if entity @e[tag=buildcard,type=marker,scores={deckPlace=0}] run scoreboard players operation @s buildType = @e[tag=buildcard,type=marker,scores={deckPlace=0},limit=1] cardType
 

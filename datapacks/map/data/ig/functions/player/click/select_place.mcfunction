@@ -17,6 +17,10 @@ execute if entity @e[tag=seen_me,tag=action_build] run item replace entity @s ho
 #Shadow Cult effect
 execute if entity @e[tag=seen_me,tag=action_build] if entity @s[scores={player_buy_build=10}] if entity @e[tag=advisor,tag=!store2,scores={buildType=1..},tag=built] run function ig:player/effect/start_shadow_cult
 
+#party town effect
+execute if entity @e[tag=seen_me,tag=action_build] if entity @s[scores={player_buy_build=6}] as @e[tag=store] at @s run function ig:ent/building/break
+execute if entity @e[tag=seen_me,tag=action_build] if entity @s[scores={player_buy_build=6}] as @e[tag=store2] at @s run function ig:ent/building/break
+
 tag @s remove temp_was_selected
 
 scoreboard players set @s click 0

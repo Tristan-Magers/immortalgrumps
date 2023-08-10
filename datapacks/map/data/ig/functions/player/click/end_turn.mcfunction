@@ -1,3 +1,10 @@
+tag @s remove first_turn
+
+# title
+title @s times 10 30 30
+title @s title {"text":"Ended Turn","color":"gray"}
+title @s subtitle {"text":"+2 Cards"}
+
 #Traitor advisor effect (includes normal draw cards)
 tag @a remove traitor1
 tag @a remove traitor2

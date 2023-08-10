@@ -3,3 +3,6 @@ gamemode adventure
 clear @s
 
 tag @s add join
+
+tag @s remove battle
+tag @s remove select

@@ -1,11 +1,39 @@
 #inventory management
-execute store result score @s[scores={player_num=1..}] player_cards run clear @s paper 0
+execute unless entity @a[tag=battle] store result score @s[scores={player_num=1..}] player_cards run clear @s paper 0
+function ig:player/inv_correct
 
-clear @a[nbt=!{Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b}]}] minecraft:carrot_on_a_stick
-item replace entity @a[nbt=!{Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b}]}] weapon.offhand with minecraft:carrot_on_a_stick
+# titles for actions
+title @s[tag=taking] times 0 5 12
+title @s[tag=taking] title {"text":"Victoy!","color":"gold"}
+title @s[tag=taking] subtitle {"text":"Choose a gem to take."}
 
-clear @s[nbt=!{Inventory:[{id:"minecraft:written_book"}]}] written_book
-item replace entity @s[nbt=!{Inventory:[{id:"minecraft:written_book"}]}] hotbar.8 with written_book{title:"How To Play",author:"",pages:['[{"text":"Goal: ","bold":true},{"bold":false,"text":"Collect all colors of gems. (or three in 1v1)"},{"bold":false,"text":"\\n\\nBreak Royal Towers to steal gems."},{"bold":false,"text":"\\n\\nBuy Buildings and Avisors to attack and defend yourself."},{"bold":false,"text":"\\n\\nBattle with cards, in a Rock-Paper-Scissors type fight."}]']} 1
+title @s[tag=battle,tag=turn] times 0 5 6
+title @s[tag=battle,tag=turn] title {"text":"Attacking!","color":"dark_red"}
+title @s[tag=battle,tag=turn] subtitle {"text":"Choose a card to attack with."}
+
+title @s[tag=battle,tag=!turn] times 0 5 6
+title @s[tag=battle,tag=!turn] title {"text":"Defending!","color":"dark_red"}
+title @s[tag=battle,tag=!turn] subtitle {"text":"Choose a card to defend with."}
+
+title @s[tag=buying] times 0 5 6
+title @s[tag=buying] title {"text":"BUYING","color":"dark_green"}
+title @s[tag=buying] subtitle [{"text":"Select cards to spend ("},{"color":"gold","score":{"name":"@s","objective":"player_price"}},{"text":" Remaining}"}]
+
+title @s[tag=placing] times 0 5 6
+title @s[tag=placing] title {"text":" ","color":"dark_green"}
+title @s[tag=placing] subtitle {"text":"Place building in valid spot.","color":"gray"}
+
+title @s[tag=placing_adv] times 0 5 6
+title @s[tag=placing_adv] title {"text":" ","color":"dark_green"}
+title @s[tag=placing_adv] subtitle {"text":"Place advisor in valid spot.","color":"gray"}
+
+scoreboard players add @s choose_part 1
+scoreboard players set @s[scores={choose_part=7..}] choose_part 0
+
+execute if entity @s[tag=turn,scores={choose_part=1}] unless entity @e[tag=selected] as @e[tag=action_build] at @s run particle minecraft:dolphin ~ ~0.52 ~0.6 0.2 0.0 0.0 0 7 force @a[tag=turn]
+execute if entity @s[tag=turn,scores={choose_part=1}] unless entity @e[tag=selected] as @e[tag=action_build] at @s run particle minecraft:dolphin ~ ~0.52 ~-0.6 0.2 0.0 0.0 0 7 force @a[tag=turn]
+execute if entity @s[tag=turn,scores={choose_part=1}] unless entity @e[tag=selected] as @e[tag=action_build] at @s run particle minecraft:dolphin ~0.6 ~0.52 ~ 0.0 0.0 0.2 0 7 force @a[tag=turn]
+execute if entity @s[tag=turn,scores={choose_part=1}] unless entity @e[tag=selected] as @e[tag=action_build] at @s run particle minecraft:dolphin ~-0.6 ~0.52 ~ 0.0 0.0 0.2 0 7 force @a[tag=turn]
 
 ### JOIN
 execute unless entity @s[tag=join] run function ig:player/join
@@ -83,8 +111,19 @@ execute if entity @s[tag=turn,tag=select] if entity @e[tag=building,tag=seen_me,
 execute if entity @s[tag=battle] run title @s actionbar {"text":"Select card to attack with"}
 execute if entity @s[tag=defender,tag=!battle] if entity @p[tag=turn,tag=battle] run title @s actionbar {"text":"Waiting for attacker to select card"}
 execute if entity @s[tag=turn,tag=!battle,tag=battle_wait] run title @s actionbar {"text":"Waiting for defender to select card"}
-execute if entity @s[tag=turn,tag=buying] run title @s actionbar [{"text":"Select cards to spend ("},{"color":"gold","score":{"name":"@s","objective":"player_price"}},{"text":" Remaining}"}]
-execute if entity @s[tag=turn,tag=placing] run title @s actionbar {"text":"Place building in valid spot"}
-execute if entity @s[tag=turn,tag=placing_adv] run title @s actionbar {"text":"Place advisor in valid spot"}
+#execute if entity @s[tag=turn,tag=buying] run title @s actionbar [{"text":"Select cards to spend ("},{"color":"gold","score":{"name":"@s","objective":"player_price"}},{"text":" Remaining}"}]
+execute if entity @s[tag=turn,tag=buying] run title @s actionbar {"text":""}
+#execute if entity @s[tag=turn,tag=placing] run title @s actionbar {"text":"Place building in valid spot"}
+#execute if entity @s[tag=turn,tag=placing_adv] run title @s actionbar {"text":"Place advisor in valid spot"}
 execute if entity @s[tag=turn,tag=removing] run title @s actionbar {"text":"Choose advisor to remove (can be canceled)"}
 execute if entity @s[tag=turn,tag=removing] if entity @e[tag=building,tag=seen_me,tag=action_build] run title @s actionbar {"text":"Remove this advisor."}
+
+### Boss bar
+execute if entity @s[tag=turn,tag=select,scores={turn_time=1}] run scoreboard players remove @s turn_time 1
+execute if entity @s[tag=turn,tag=!battle_wait,scores={turn_time=2..}] run scoreboard players remove @s turn_time 1
+execute if entity @s[tag=turn,tag=!battle_wait] store result bossbar minecraft:timer value run scoreboard players get @s turn_time
+execute if entity @s[tag=turn,tag=!battle_wait] store result bossbar minecraft:timer_p value run scoreboard players get @s turn_time
+execute if entity @s[tag=turn,scores={turn_time=..0}] run function ig:player/click/end_turn
+
+### Non-player
+scoreboard players reset @s[scores={player_num=0}] player_cards
